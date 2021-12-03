@@ -20,6 +20,11 @@ class varnish::repo (
   $repo_arch = $::architecture
   $repo_version = regsubst($varnish::real_version, '^(\d+)\.(\d+)$', '\1\2')
 
+  # Unless using 6.0.1, all 6.0.x versions should use the 60lts branch
+  if $repo_version == '60' and $varnish::real_version != '6.0.1' {
+    $repo_version = '60lts'
+  }
+
   $osver_array = split($::operatingsystemrelease, '[.]')
   if downcase($::operatingsystem) == 'amazon' {
     $osver = $osver_array[0] ? {
