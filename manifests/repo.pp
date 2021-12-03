@@ -65,6 +65,33 @@ class varnish::repo (
             '52': {
               $key_id = '91CFD5635A1A5FAC0662BEDD2E9BA3FE86BE909D'
             }
+            '60': {
+              $key_id = '7C5B46721AF00FD57E68E6E8D2605BF74E8B9DBA'
+            }
+            '60lts': {
+              $key_id = '48D81A24CB0456F5D59431D94CFCFD6BA750EDCD'
+            }
+            '61': {
+              $key_id = '4A066C99B76A0F55A40E3E1E387EF1F5742D76CC'
+            }
+            '62': {
+              $key_id = 'B54813B54CA95257D3590B3F1B0096460868C7A9'
+            }
+            '63': {
+              $key_id = '920A8A7AA7120A8604BCCD294A42CD6EB810E55D'
+            }
+            '64': {
+              $key_id = 'A9897320C397E3A60C03E8BF821AD320F71BFF3D'
+            }
+            '65': {
+              $key_id = 'A487F9BE81D9DF5121488CFE1C7B4E9FF149D65B'
+            }
+            '66': {
+              $key_id = 'A0378A38E4EACA3660789E570BAC19E3F6C90CD5'
+            }
+            '70': {
+              $key_id = 'A4FED748BC3C7FC82C34F108985A1C79B02B8211'
+            }
             default: {
               fail("Repo version ${repo_version} not supported")
             }
