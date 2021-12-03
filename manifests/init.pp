@@ -72,7 +72,7 @@ class varnish (
   $vcl_dir                      = undef,
   $shmlog_dir                   = '/var/lib/varnish',
   $shmlog_tempfs                = true,
-  $version                      = '3.0',
+  $version                      = '7.0',
   $add_repo                     = true,
   $manage_firewall              = false,
   $varnish_conf_template        = 'varnish/varnish-conf.erb',
@@ -90,11 +90,11 @@ class varnish (
   if ! ($version =~ /^\d+\.\d+$/) {
     warning('$version should consist only of major and minor version numbers.')
 
-    # Extract major and minor version from the value, otherwise default to 3.0.
+    # Extract major and minor version from the value, otherwise default to 7.0.
     if $version =~ /^\d+\.\d+\./ {
       $real_version = regsubst($version, '^(\d+\.\d+).*$', '\1')
     } elsif $version == 'present' {
-      $real_version = '3.0'
+      $real_version = '7.0'
     } else {
       fail('Invalid value for $version.')
     }
