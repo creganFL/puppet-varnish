@@ -16,7 +16,7 @@ describe 'varnish::service', :type => :class do
       
     it { should contain_service('varnish').with(
       'ensure'  => 'running',
-      'restart' => '/etc/init.d/varnish reload',
+      'restart' => 'systemctl reload varnish',
       'require' => 'Package[varnish]'
       ) 
     }
@@ -36,7 +36,7 @@ describe 'varnish::service', :type => :class do
       
     it { should contain_service('varnish').with(
       'ensure'  => 'stopped',
-      'restart' => '/sbin/service varnish reload',
+      'restart' => 'systemctl reload varnish',
       'require' => 'Package[varnish]'
       ) 
     }
