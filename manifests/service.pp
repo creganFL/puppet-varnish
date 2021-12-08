@@ -72,7 +72,7 @@ class varnish::service (
   }
 
   exec { 'restart-varnish':
-    command     => $restart_command,
+    command     => $restart_cmd,
     refreshonly => true,
     before      => Service['varnish'],
     require     => Package['varnish'],
