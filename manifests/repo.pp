@@ -21,7 +21,7 @@ class varnish::repo (
   $repo_version_first = regsubst($varnish::real_version, '^(\d+)\.(\d+)$', '\1\2')
 
   # Unless using 6.0.1, all 6.0.x versions should use the 60lts branch
-  if $repo_version == '60' and $varnish::real_version != '6.0.1' {
+  if $repo_version_first == '60' and $varnish::real_version != '6.0.1' {
     $repo_version = '60lts'
   } else {
     $repo_version = $repo_version_first
