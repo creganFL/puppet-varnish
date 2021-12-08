@@ -37,8 +37,8 @@ class varnish::service (
   # varnish reload
   if $systemd {
     $reload_cmd = $::osfamily ? {
-      'debian'    => '/bin/systemctl restart varnish',
-      'redhat'    => '/bin/systemctl restart varnish',
+      'debian'    => 'systemctl restart varnish',
+      'redhat'    => 'systemctl restart varnish',
       default     => undef,
     }
   } else {
@@ -59,8 +59,8 @@ class varnish::service (
   # varnish restart
   if $systemd {
     $restart_cmd = $::osfamily ? {
-      'debian'    => '/bin/systemctl restart varnish',
-      'redhat'    => '/bin/systemctl restart varnish',
+      'debian'    => 'systemctl restart varnish',
+      'redhat'    => 'systemctl restart varnish',
       default     => undef,
     }
   } else {
@@ -73,6 +73,7 @@ class varnish::service (
 
   exec { 'restart-varnish':
     command     => $restart_cmd,
+    path        => ['/bin','/sbin','/usr/bin','/usr/sbin'],
     refreshonly => true,
     before      => Service['varnish'],
     require     => Package['varnish'],
