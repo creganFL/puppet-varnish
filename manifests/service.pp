@@ -58,13 +58,13 @@ class varnish::service (
 
   # varnish restart
   if $systemd {
-    $reload_cmd = $::osfamily ? {
+    $restart_cmd = $::osfamily ? {
       'debian'    => 'etc/init.d/varnish restart',
       'redhat'    => '/sbin/service varnish restart',
       default     => undef,
     }
   } else {
-    $reload_cmd = $::osfamily ? {
+    $restart_cmd = $::osfamily ? {
       'debian'    => 'systemctl restart restart',
       'redhat'    => 'systemctl restart restart',
       default     => undef,
