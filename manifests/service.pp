@@ -75,8 +75,7 @@ class varnish::service (
     command     => $restart_cmd,
     path        => ['/bin','/sbin','/usr/bin','/usr/sbin'],
     refreshonly => true,
-    before      => Service['varnish'],
-    require     => Package['varnish'],
+    require     => [Package['varnish'], Service['varnish']],
   }
 
   if $systemd {
